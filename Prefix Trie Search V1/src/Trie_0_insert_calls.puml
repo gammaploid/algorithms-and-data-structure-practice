@@ -1,0 +1,221 @@
+@startuml
+
+/' diagram meta data start
+config=CallConfiguration;
+{
+  "rootMethod": "Trie#insert(String,TrieData)",
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": false,
+    "cutTests": false,
+    "cutClient": false,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": false,
+    "cutConstructors": false
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": false,
+    "hideInterfaceCalls": false, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "BothDirections" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showMethodParametersTypes": true,
+    "showMethodParametersNames": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 5,
+    "showCallOrder": true,
+    "edgeMode": "TypesAndMethods", // TypesOnly, MethodsOnly, TypesAndMethods, MethodsAndDirectTypeUsage
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "Trie",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="LR"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_1564843780 { 
+   	label=TrieData
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   TrieData1564843780[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)TrieData</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   frequency: int [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1565154652 { 
+   	label=TrieNode
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   TrieNode1565154652[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)TrieNode</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   data: TrieData [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   numChildren: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   terminal: boolean [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_2615354 { 
+   	label=Trie
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Trie2615354[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Trie</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   root: TrieNode [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+subgraph cluster_1244810606 { 
+   	label=Trie
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   Trie2615354XXXinsert1527018345[
+	label="+ insert(str: String, data: TrieData): TrieNode"
+	style=filled
+	fillcolor=white
+	tooltip="Trie
+
+&#10;  Inserts a string into the trie and returns the last node that was&#10;  inserted.&#10; &#10;  @param str The string to insert into the trie&#10;  @param data	The data associated with the string&#10;  @return The last node that was inserted into the trie&#10; "
+	penwidth=4
+	fontcolor=darkgreen
+];
+} 
+} 
+
+subgraph cluster_591714562 { 
+   	label=TrieDriver
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_1932118382 { 
+   	label=TrieDriver
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   TrieDriver591714562XXXmain1859653459[
+	label="+ main(args: String[])"
+	style=filled
+	fillcolor=white
+	tooltip="TrieDriver
+
+null"
+	fontcolor=darkgreen
+];
+
+TrieDriver591714562XXXtest2719352354[
+	label="+ test2(in: Scanner)"
+	style=filled
+	fillcolor=white
+	tooltip="TrieDriver
+
+&#10;  Test out the basic Trie implementation. Expect a list on standard in of&#10;  the words and the data to be inserted and then a second line that&#10;  searches for words in the Trie. The first search uses get (so should only&#10;  return for whole words) and the second search use getNode (so should&#10;  return nodes even if they are not whole words).&#10; &#10;  For example&#10; &#10;  abacus 12 abasement 23 abase 43 abroad 32 aloud 23 all 56 allowed 44&#10;  aba abase abasement abroad aloud broad&#10; &#10;  using get&#10;  aba: null abase: TrieNode; isTerminal=true, data=43, #children=1&#10;  abasement: TrieNode; isTerminal=true, data=23, #children=0&#10;  abroad: TrieNode; isTerminal=true, data=32, #children=0&#10;  aloud: TrieNode; isTerminal=true, data=23, #children=0&#10;  broad: null&#10; &#10;  using getNode&#10;  aba: TrieNode; isTerminal=false, data=null, #children=2&#10;  abase: TrieNode; isTerminal=true, data=43, #children=1&#10;  abasement: TrieNode; isTerminal=true, data=23, #children=0&#10;  abroad: TrieNode; isTerminal=true, data=32, #children=0&#10;  aloud: TrieNode; isTerminal=true, data=23, #children=0&#10;  broad: null&#10; "
+	fontcolor=darkgreen
+];
+
+TrieDriver591714562XXXtest3719352354[
+	label="+ test3(in: Scanner)"
+	style=filled
+	fillcolor=white
+	tooltip="TrieDriver
+
+&#10; &#10;  Test out the Trie implementation for prefix search. Expect a list on standard in of&#10;  the words and the data to be inserted and then a second line that&#10;  searches for prefixes in the Trie.&#10; &#10;  For example&#10;  abacus 12 abasement 34 abase 56 abroad 67 aloud 3 all 34 allowed 43 allow 32 allowance 11 abroad 12&#10;  aba all br&#10; &#10;  aba: [abacus, abase, abasement]&#10;  all: [all, allow, allowance, allowed]&#10; &#10; "
+	fontcolor=darkgreen
+];
+} 
+} 
+
+'edges    
+Trie2615354 -> TrieNode1565154652[label="root
+[0..1]"];
+Trie2615354XXXinsert1527018345 -> TrieData1564843780[label=data, style=dashed];
+Trie2615354XXXinsert1527018345 -> TrieNode1565154652[label=return, style=dashed];
+TrieDriver591714562XXXmain1859653459 -> TrieDriver591714562XXXtest2719352354[label=3];
+TrieDriver591714562XXXmain1859653459 -> TrieDriver591714562XXXtest3719352354[label=4];
+TrieDriver591714562XXXtest2719352354 -> Trie2615354XXXinsert1527018345[label=4];
+TrieDriver591714562XXXtest3719352354 -> Trie2615354XXXinsert1527018345[label=4];
+TrieNode1565154652 -> TrieData1564843780[label="data
+[0..1]"];
+    
+}
+@enduml

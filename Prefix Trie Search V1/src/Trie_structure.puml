@@ -1,0 +1,189 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": false,
+    "cutTests": false,
+    "cutClient": false,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": false,
+    "cutConstructors": false
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": false,
+    "hideInterfaceCalls": false, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "BothDirections" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 6,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "Trie",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_1564843780 { 
+   	label=TrieData
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   TrieData1564843780[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)TrieData</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   frequency: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ TrieData(frequency: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getFrequency(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setFrequency(frequency: int)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1565154652 { 
+   	label=TrieNode
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   TrieNode1565154652[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)TrieNode</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   data: TrieData [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   numChildren: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   terminal: boolean [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addChild(label: char, node: TrieNode)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ addData(dataObject: TrieData)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getChild(label: char): TrieNode</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_2615354 { 
+   	label=Trie
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Trie2615354[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Trie</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   root: TrieNode [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ get(str: String): TrieNode</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getAlphabeticalListWithPrefix(prefix: String): List&lt;String&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getMostFrequentWordWithPrefix(prefix: String): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getNode(str: String): TrieNode</TD></TR>
+<TR><TD ALIGN="LEFT" >+ insert(str: String, data: TrieData): TrieNode</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readInDictionary(fileName: String): Trie</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_591714562 { 
+   	label=TrieDriver
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   TrieDriver591714562[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)TrieDriver</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ main(args: String[])</TD></TR>
+<TR><TD ALIGN="LEFT" >+ test1(in: Scanner)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ test2(in: Scanner)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ test3(in: Scanner)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+'edges    
+Trie2615354 -> TrieNode1565154652[label="root
+[0..1]"];
+TrieNode1565154652 -> TrieData1564843780[label="data
+[0..1]"];
+    
+}
+@enduml

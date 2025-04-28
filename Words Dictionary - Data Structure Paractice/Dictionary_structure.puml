@@ -1,0 +1,150 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": false,
+    "cutTests": false,
+    "cutClient": false,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": false,
+    "cutConstructors": false
+  },
+  "graphTraversal": {
+    "forwardDepth": 4,
+    "backwardDepth": 4,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": false,
+    "hideInterfaceCalls": false, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "BothDirections" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "None", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 5,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "Dictionary",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+Dictionary1854452554[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Dictionary</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   dictionaryMap: Map&lt;String, DictionaryData&gt; [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ Dictionary()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ alphabeticalList(): List&lt;DictionaryData&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ contains(word: String): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ frequencyOrderedList(): List&lt;DictionaryData&gt;</TD></TR>
+<TR><TD ALIGN="LEFT" >+ insert(word: String, data: DictionaryData)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ lookup(word: String): DictionaryData</TD></TR>
+<TR><TD ALIGN="LEFT" >+ readInDictionary(fileName: String): Dictionary</TD></TR>
+<TR><TD ALIGN="LEFT" >+ remove(word: String): DictionaryData</TD></TR>
+<TR><TD ALIGN="LEFT" >+ spellCeck(fileName: String): List&lt;String&gt;</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+DictionaryData924214656[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)DictionaryData</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   frequency: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rank: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   word: String [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ DictionaryData(line: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getFrequency(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getRank(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getWord(): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setFrequency(frequency: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setRank(rank: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setWord(word: String)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+DictionaryDriver872550274[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)DictionaryDriver</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ main(args: String[])</TD></TR>
+<TR><TD ALIGN="LEFT" >- testcp1(fileName: String, word: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >- testcp2(input: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >- testcp3(fileName: String, words: String, removeWord: String, newWord: String, newWordData: String)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+'edges    
+Dictionary1854452554 -> DictionaryData924214656[label="dictionaryMap
+[0..*]"];
+    
+}
+@enduml

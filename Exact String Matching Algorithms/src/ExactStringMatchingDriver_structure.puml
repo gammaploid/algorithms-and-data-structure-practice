@@ -1,0 +1,164 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": false,
+    "cutTests": false,
+    "cutClient": false,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": false,
+    "cutConstructors": false
+  },
+  "graphTraversal": {
+    "forwardDepth": 5,
+    "backwardDepth": 5,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": false,
+    "hideInterfaceCalls": false, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "BothDirections" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 10,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "ExactStringMatchingDriver",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_1732832193 { 
+   	label=StringMatcher
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   StringMatcher1732832193[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)StringMatcher</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   timeToMatch: double [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   timeToSetPattern: double [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   timeToSetTarget: double [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ getNumberOfComparisons(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ match(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ matchTimed(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setPattern(pattern: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setPatternTimed(target: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setTarget(target: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setTargetTimed(target: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ toTimingString(): String</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1793925749 { 
+   	label=ExactStringMatchingDriver
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   ExactStringMatchingDriver1793925749[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ExactStringMatchingDriver</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ main(args: String[])</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_844608222 { 
+   	label=StringMatcherBuiltin
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   StringMatcherBuiltin844608222[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)StringMatcherBuiltin</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   pattern: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   target: String [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ getNumberOfComparisons(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ match(): int</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setPattern(pattern: String)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ setTarget(target: String)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+'edges    
+StringMatcher1732832193 -> StringMatcherBuiltin844608222[arrowhead=none, arrowtail=empty, dir=both];
+    
+}
+@enduml

@@ -1,0 +1,275 @@
+@startuml
+
+/' diagram meta data start
+config=CallConfiguration;
+{
+  "rootMethod": "ExactStringMatchingDriver#main(String[])",
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": false,
+    "cutTests": false,
+    "cutClient": false,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": false,
+    "cutConstructors": false
+  },
+  "graphTraversal": {
+    "forwardDepth": 5,
+    "backwardDepth": 5,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": false,
+    "hideInterfaceCalls": false, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "BothDirections" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showMethodParametersTypes": true,
+    "showMethodParametersNames": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 10,
+    "showCallOrder": true,
+    "edgeMode": "TypesAndMethods", // TypesOnly, MethodsOnly, TypesAndMethods, MethodsAndDirectTypeUsage
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "ExactStringMatchingDriver",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="LR"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_1732832193 { 
+   	label=StringMatcher
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_794815572 { 
+   	label=StringMatcher
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   StringMatcher1732832193XXXgetNumberOfComparisons0[
+	label="+ getNumberOfComparisons(): int"
+	style=filled
+	fillcolor=white
+	tooltip="StringMatcher
+
+&#10;  The number of character comparisons (or tests) performed in finding the pattern in the&#10;  target text.&#10; &#10;  @return the number of comparisons&#10; "
+	fontcolor=darkgreen
+];
+
+StringMatcher1732832193XXXmatch0[
+	label="+ match(): int"
+	style=filled
+	fillcolor=white
+	tooltip="StringMatcher
+
+&#10;  Match the pattern in the target text.&#10; &#10;  @return the first position of the pattern in text, -1 otherwise&#10; "
+	fontcolor=darkgreen
+];
+
+StringMatcher1732832193XXXmatchTimed0[
+	label="+ matchTimed(): int"
+	style=filled
+	fillcolor=white
+	tooltip="StringMatcher
+
+&#10;  Calls \<code\>match\</code\> and times how long this operations takes.&#10; &#10;  @return the index of the first occurrence of pattern in target, -1 otherwise&#10; "
+	fontcolor=darkgreen
+];
+
+StringMatcher1732832193XXXsetPattern1808118735[
+	label="+ setPattern(pattern: String)"
+	style=filled
+	fillcolor=white
+	tooltip="StringMatcher
+
+&#10;  Set the pattern text (the smaller one) to search for in the target text (the longer one).&#10; &#10;  @param pattern the pattern text&#10; "
+	fontcolor=darkgreen
+];
+
+StringMatcher1732832193XXXsetPatternTimed1808118735[
+	label="+ setPatternTimed(target: String)"
+	style=filled
+	fillcolor=white
+	tooltip="StringMatcher
+
+&#10;  Sets the pattern (calls \<code\>setPattern\</code\>) and times how long this operations takes.&#10;  @param target the target text&#10; "
+	fontcolor=darkgreen
+];
+
+StringMatcher1732832193XXXsetTarget1808118735[
+	label="+ setTarget(target: String)"
+	style=filled
+	fillcolor=white
+	tooltip="StringMatcher
+
+&#10;  Set the target text (the longer one) to be search.&#10; &#10;  @param target the target text&#10; "
+	fontcolor=darkgreen
+];
+
+StringMatcher1732832193XXXsetTargetTimed1808118735[
+	label="+ setTargetTimed(target: String)"
+	style=filled
+	fillcolor=white
+	tooltip="StringMatcher
+
+&#10;  Sets the target (calls \<code\>setTarget\</code\>) and times how long this operations takes.&#10; &#10;  @param target the target text&#10; "
+	fontcolor=darkgreen
+];
+
+StringMatcher1732832193XXXtoTimingString0[
+	label="+ toTimingString(): String"
+	style=filled
+	fillcolor=white
+	tooltip="StringMatcher
+
+null"
+	fontcolor=darkgreen
+];
+} 
+} 
+
+subgraph cluster_1793925749 { 
+   	label=ExactStringMatchingDriver
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_585980988 { 
+   	label=ExactStringMatchingDriver
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   ExactStringMatchingDriver1793925749XXXmain1859653459[
+	label="+ main(args: String[])"
+	style=filled
+	fillcolor=white
+	tooltip="ExactStringMatchingDriver
+
+&#10;  Example commands:&#10;  repaper.txt, builtin, verbose&#10;  repaper.txt, bruteforce, verbose&#10;  repaper.txt, bm, verbose&#10;  repaper.txt, kmp, verbose&#10; &#10;  @param args the command line arguments&#10; "
+	penwidth=4
+	fontcolor=darkgreen
+];
+} 
+} 
+
+subgraph cluster_844608222 { 
+   	label=StringMatcherBuiltin
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_211745170 { 
+   	label=StringMatcherBuiltin
+	labeljust=l
+	fillcolor=white
+	style=filled
+   
+   StringMatcherBuiltin844608222XXXgetNumberOfComparisons0[
+	label="+ getNumberOfComparisons(): int"
+	style=filled
+	fillcolor=white
+	tooltip="StringMatcherBuiltin
+
+&#10;  The number of character comparisons (or tests) performed in finding the pattern in the&#10;  target text.&#10; &#10;  @return the number of comparisons&#10; "
+	fontcolor=darkgreen
+];
+
+StringMatcherBuiltin844608222XXXmatch0[
+	label="+ match(): int"
+	style=filled
+	fillcolor=white
+	tooltip="StringMatcherBuiltin
+
+&#10;  Match the pattern in the target text.&#10; &#10;  @return the first position of the pattern in text, -1 otherwise&#10; "
+	fontcolor=darkgreen
+];
+
+StringMatcherBuiltin844608222XXXsetPattern1808118735[
+	label="+ setPattern(pattern: String)"
+	style=filled
+	fillcolor=white
+	tooltip="StringMatcherBuiltin
+
+&#10;  Set the pattern text (the smaller one) to search for in the target text (the longer one).&#10; &#10;  @param pattern the pattern text&#10; "
+	fontcolor=darkgreen
+];
+
+StringMatcherBuiltin844608222XXXsetTarget1808118735[
+	label="+ setTarget(target: String)"
+	style=filled
+	fillcolor=white
+	tooltip="StringMatcherBuiltin
+
+&#10;  Set the target text (the longer one) to be search.&#10; &#10;  @param target the target text&#10; "
+	fontcolor=darkgreen
+];
+} 
+} 
+
+'edges    
+ExactStringMatchingDriver1793925749XXXmain1859653459 -> StringMatcher1732832193XXXgetNumberOfComparisons0[label=34];
+ExactStringMatchingDriver1793925749XXXmain1859653459 -> StringMatcher1732832193XXXmatchTimed0[label=30];
+ExactStringMatchingDriver1793925749XXXmain1859653459 -> StringMatcher1732832193XXXsetPatternTimed1808118735[label=29];
+ExactStringMatchingDriver1793925749XXXmain1859653459 -> StringMatcher1732832193XXXsetTargetTimed1808118735[label=23];
+ExactStringMatchingDriver1793925749XXXmain1859653459 -> StringMatcher1732832193XXXtoTimingString0[label=36];
+StringMatcher1732832193XXXgetNumberOfComparisons0 -> StringMatcherBuiltin844608222XXXgetNumberOfComparisons0;
+StringMatcher1732832193XXXmatch0 -> StringMatcherBuiltin844608222XXXmatch0;
+StringMatcher1732832193XXXmatchTimed0 -> StringMatcher1732832193XXXmatch0[label=1];
+StringMatcher1732832193XXXsetPattern1808118735 -> StringMatcherBuiltin844608222XXXsetPattern1808118735;
+StringMatcher1732832193XXXsetPatternTimed1808118735 -> StringMatcher1732832193XXXsetPattern1808118735[label=1];
+StringMatcher1732832193XXXsetTarget1808118735 -> StringMatcherBuiltin844608222XXXsetTarget1808118735;
+StringMatcher1732832193XXXsetTargetTimed1808118735 -> StringMatcher1732832193XXXsetTarget1808118735[label=1];
+    
+}
+@enduml
