@@ -1,7 +1,7 @@
 # Data Structure Project
 
 This project implements classic data structures and string matching algorithms in Java, and for understanding of space/time complexity of various implementation of data structures on retrieval and searching opreations. Heap memory and CPU usage was profiled and studied in terms of complexity theory for the different data stucture implementation with small to very large inputs. A GUI was devloped for the suffix search function using Java Swing components.
-
+ 
 ## Data Structures
 
 - **Trie:** Supports fast prefix-based word search, autocomplete, and frequency analysis.
